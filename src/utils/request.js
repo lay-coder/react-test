@@ -20,8 +20,9 @@ const http = async (
     const requests = axios(config)
     let response
     try {
-        response = await requests.data
-        return response
+        response = await requests
+        const json = response.data
+        return json
     } catch (e) {
         console.log(e)
     }
@@ -34,6 +35,5 @@ const request = {
     post(url, query) {
         return http('POST', url, query)
     },
-    // params:obj
 }
 export default request
